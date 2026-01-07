@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chroma RAG Ingest</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+        .upload-area { border: 2px dashed #ccc; padding: 30px; text-align: center; cursor: pointer; }
+        .status { margin-top: 20px; padding: 10px; display: none; }
+        #loading { display: none; color: blue; }
+    </style>
+</head>
+<body>
+
+    <h2>📄 Upload PDF to RAG</h2>
+    <div class="upload-area" id="dropZone">
+        <p>Click or Drag PDF here</p>
+        <input type="file" id="fileInput" accept="application/pdf" hidden>
+    </div>
+
+    <div id="loading">Processing and indexing PDF...</div>
+    <div id="status" class="status"></div>
+
+    <hr>
+<h2>🔍 Ask about your Resume</h2>
+<input type="text" id="queryInput" placeholder="e.g. What are Siddhant's skills?" style="width: 80%; padding: 10px;">
+<button onclick="askQuestion()" style="padding: 10px;">Ask</button>
+
+<div id="answer" style="margin-top: 20px; white-space: pre-wrap; background: #f4f4f4; padding: 15px; border-radius: 5px; display: none;"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
